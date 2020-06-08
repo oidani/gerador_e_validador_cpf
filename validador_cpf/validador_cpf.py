@@ -44,11 +44,11 @@ def principal(cpf_solicitado):
 		return "inválido"
 
 def testa_cpf(obtido, esperado):
-		if obtido == esperado:
-			prefixo = "PASSOU"
-		else:
-			prefixo = "FALHOU"
-		print ("%s - obtido: %s - esperado: %s" % (prefixo, obtido, esperado))
+	if obtido == esperado:
+		prefixo = "PASSOU"
+	else:
+		prefixo = "FALHOU"
+	print ("%s - obtido: %s - esperado: %s" % (prefixo, obtido, esperado))
 
 def main():
 	testa_cpf(principal("08601078419"), "válido")
