@@ -14,4 +14,4 @@ Aplicação que recebe um CPF e retorna se o mesmo é válido.
     - [ ] Se existirem, deverão ser retirados e mantidos apenas os números
 - [ ] A aplicação realizará a validação do CPF
 - [ ] A aplicação retornará na tela uma mensagem com o CPF inserido e se o mesmo é válido
-    - [ ] 1. O CPF deverá ser exibido com pontos e hífen
+    - [ ] O CPF deverá ser exibido com pontos e hífen
