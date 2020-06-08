@@ -1,6 +1,6 @@
 # Descrição
 
-Aplicação que recebe um CPF e retorna se o mesmo é válido.
+Aplicação que recebe um CPF do usuário e retorna na tela se o mesmo é válido.
 
 # User Stories
 
