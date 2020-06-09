@@ -1,5 +1,5 @@
-def valida_cpf_inserido(cpf_solicitado):
-	return [int(cpf_solicitado[digito]) for digito in range(len(cpf_solicitado)) if isinstance(digito, int)]
+def verifica_cpf_inserido(cpf_solicitado):	
+	return len(cpf_solicitado) == 11 and cpf_solicitado.isdigit()
 
 def calcula_dv(cpf_lista, c):
 	lista_validacao_dv = []
@@ -23,37 +23,54 @@ def converte_cpf(cpf_solicitado):
 			cpf_convertido += cpf_solicitado[i]
 	return cpf_convertido
 
-def principal(cpf_solicitado):
-	#cpf_solicitado = input("Por gentileza, insira o CPF para validação (apenas números): ")
-	
-	cpf_lista = valida_cpf_inserido(cpf_solicitado)
-
-	primeiro_dv = calcula_dv(cpf_lista, 10)
-	segundo_dv = calcula_dv(cpf_lista, 11)
-
-	'''if primeiro_dv == cpf_lista[9] and segundo_dv == cpf_lista[10]:
-		validacao = "válido"
-	else:
-		validacao = "inválido"
-	
-	print("%s é um CPF %s." %(converte_cpf(cpf_solicitado), validacao))'''
-
+def compara_dv(cpf_lista, primeiro_dv, segundo_dv):		
 	if primeiro_dv == cpf_lista[9] and segundo_dv == cpf_lista[10]:
 		return "válido"
-	else:
-		return "inválido"
+	return "inválido"
 
-def testa_cpf(obtido, esperado):
-	if obtido == esperado:
-		prefixo = "PASSOU"
-	else:
-		prefixo = "FALHOU"
-	print ("%s - obtido: %s - esperado: %s" % (prefixo, obtido, esperado))
+def verifica_uf(digito_uf):
+	dict_uf = {"0": "RS",
+				"1": "DF, GO, MS, TO",
+				"2": "PA, AM, AC, AM, RO, RR",
+				"3": "CE, MA, PI",
+				"4": "PE, RN, PA, AL",
+				"5": "BA, SE",
+				"6": "MG",
+				"7": "RJ, ES",
+				"8": "SP",
+				"9": "PR, SC"}
+	return dict_uf[digito_uf]
 
 def main():
-	testa_cpf(principal("08601078419"), "válido")
-	testa_cpf(principal("11144477754"), "inválido")
-	testa_cpf(principal("26758121453"), "válido")
+	print()
+	cpf_solicitado = input("Por gentileza, insira o CPF para validação (apenas números): ")
+	
+	cpf_lista = []
+	primeiro_dv = segundo_dv = 0
+
+	print()
+	if verifica_cpf_inserido(cpf_solicitado):
+		cpf_lista = [int(cpf_solicitado[digito]) for digito in range(len(cpf_solicitado))]
+		
+		primeiro_dv = calcula_dv(cpf_lista, 10)
+		segundo_dv = calcula_dv(cpf_lista, 11)
+
+		print("----------------------------------")
+		print(f"CPF      : { converte_cpf(cpf_solicitado) }")
+		print("----------------------------------")
+		print(f"SITUAÇÃO : { compara_dv(cpf_lista, primeiro_dv, segundo_dv) }")
+		if compara_dv(cpf_lista, primeiro_dv, segundo_dv) == "válido":
+			print("----------------------------------")
+			print(f"UF       : { verifica_uf(cpf_solicitado[8]) }")
+			print("----------------------------------")
+	else:
+		print("----------------------------")
+		print(f"CPF  : { cpf_solicitado }")
+		print("----------------------------")
+		print("ERRO : valor fora do padrão")
+		print("----------------------------")
+		#return "inválido"
+	print()
 
 if __name__ == "__main__":
 	main()
