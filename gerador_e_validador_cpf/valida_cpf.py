@@ -8,7 +8,7 @@ def calcula_dv(cpf_lista, c):
 		c -= 1
 	soma_validacao_dv = sum(lista_validacao_dv)
 
-	calculo_dv = soma_validacao_dv - ((soma_validacao_dv // 11) * 11)
+	calculo_dv = soma_validacao_dv % 11
 
 	return 0 if calculo_dv < 2 else 11 - calculo_dv
 
