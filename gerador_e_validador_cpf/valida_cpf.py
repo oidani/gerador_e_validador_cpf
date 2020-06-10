@@ -1,5 +1,5 @@
 def verifica_cpf_inserido(cpf_solicitado):	
-	return len(cpf_solicitado) == 11 and cpf_solicitado.isdigit()
+	return len(cpf_solicitado) == 11 and cpf_solicitado.isdigit() and cpf_solicitado.count(cpf_solicitado[0]) != 11
 
 def calcula_dv(cpf_lista, c):
 	lista_validacao_dv = []
@@ -55,21 +55,13 @@ def main():
 		primeiro_dv = calcula_dv(cpf_lista, 10)
 		segundo_dv = calcula_dv(cpf_lista, 11)
 
-		print("----------------------------------")
 		print(f"CPF      : { converte_cpf(cpf_solicitado) }")
-		print("----------------------------------")
 		print(f"SITUAÇÃO : { compara_dv(cpf_lista, primeiro_dv, segundo_dv) }")
 		if compara_dv(cpf_lista, primeiro_dv, segundo_dv) == "válido":
-			print("----------------------------------")
 			print(f"UF       : { verifica_uf(cpf_solicitado[8]) }")
-			print("----------------------------------")
 	else:
-		print("----------------------------")
-		print(f"CPF  : { cpf_solicitado }")
-		print("----------------------------")
-		print("ERRO : valor fora do padrão")
-		print("----------------------------")
-		#return "inválido"
+		print(f"CPF      : { cpf_solicitado }")
+		print(f"SITUAÇÃO : inválido")
 	print()
 
 if __name__ == "__main__":
