@@ -12,3 +12,4 @@ Aplicação que recebe um CPF do usuário e retorna na tela se o mesmo é válid
 - [X] A aplicação retornará na tela uma mensagem com o CPF inserido e se o mesmo é válido
     - [X] O CPF deverá ser exibido com pontos e hífen
     - [X] Se o CPF for válido, deverá ser exibida sua UF
+    - [X] O formato da UF será 2 letras maiúsculas
