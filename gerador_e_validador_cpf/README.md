@@ -2,7 +2,7 @@
 
 Aplicação com possibilidade de validar um CPF inserido pelo usuário e gerar um CPF válido.
 
-## Esta aplicação deve ser utilizada para fins de teste de software.
+## Aviso importante: esta aplicação deve ser utilizada para fins de teste de software.
 
 # User Stories
 
