@@ -8,8 +8,8 @@ Aplicação com possibilidade de validar um CPF inserido pelo usuário e gerar u
 
 ## Geral
 
- - [ ] Ao iniciar a aplicação, o usuário irá visualizar uma mensagem solicitando que escolha entre gerar um CPF válido ou validar um CPF
- - [ ] O usuário irá escolher entre gerar um CPF válido ou validar um CPF
+ - [X] Ao iniciar a aplicação, o usuário irá visualizar uma mensagem solicitando que escolha entre gerar um CPF válido ou validar um CPF
+ - [X] O usuário irá escolher entre gerar um CPF válido ou validar um CPF
  - [ ] Ao receber o resultado de sua solicitação na tela, o usuário poderá escolher se deseja receber a saída obtida em um arquivo nos seguintes formatos:
     - [ ] JSON
     - [ ] YAML
@@ -23,10 +23,9 @@ Aplicação com possibilidade de validar um CPF inserido pelo usuário e gerar u
 
 ## Gerar CPF
 
-- [ ] O usuário poderá ver na tela o CPF gerado em dois formatos, bem como sua UF
-    - [ ] Formato 1: 11 dígitos, todos numéricos inteiros sem pontos e hífen (ex. XXXXXXXXXXX)
-    - [ ] Formato 2: 14 dígitos, sendo 11 numéricos inteiros, com pontos e hífen (ex. XXX.XXX.XXX-XX)
-    - [ ] UF: formato de 2 letras maiúsculas
+- [X] O usuário poderá ver na tela o CPF gerado no formato abaixo, bem como sua UF
+    - [X] Formato: 14 dígitos, sendo 11 numéricos inteiros, com pontos e hífen (ex. XXX.XXX.XXX-XX)
+    - [X] UF: formato de 2 letras maiúsculas
 
 ## Validar CPF
 
@@ -39,8 +38,8 @@ Aplicação com possibilidade de validar um CPF inserido pelo usuário e gerar u
 
 ## Geral
 
-- [ ] A aplicação irá exibir uma mensagem solicitando que o usuário escolha entre gerar um CPF válido ou validar um CPF
-- [ ] A aplicação irá exibir na tela o programa referente à escolha do usuário
+- [X] A aplicação irá exibir uma mensagem solicitando que o usuário escolha entre gerar um CPF válido ou validar um CPF
+- [X] A aplicação irá exibir na tela o programa referente à escolha do usuário
 - [ ] Após enviar a saída na tela, a aplicação solicitará que o usuário escolha se deseja receber a saída obtida em um arquivo nos seguintes formatos:
     - [ ] JSON
     - [ ] YAML
@@ -56,13 +55,12 @@ Aplicação com possibilidade de validar um CPF inserido pelo usuário e gerar u
 
 ## Gerar CPF
 
-- [ ] A aplicação irá gerar um número de CPF válido
-    - [ ] O CPF gerado tem de conter 11 dígitos numéricos inteiros
+- [X] A aplicação irá gerar um número de CPF válido
+    - [X] O CPF gerado tem de conter 11 dígitos numéricos inteiros
     - [ ] O CPF gerado não pode conter todos os dígitos iguais (ex. 00000000000, 33333333333), uma vez que tais valores são considerados CPFs inválidos
-- [ ] A aplicação retornará na tela o CPF em dois formatos e sua UF
-    - [ ] Formato 1: 11 dígitos, todos numéricos inteiros sem pontos e hífen (ex. XXXXXXXXXXX)
-    - [ ] Formato 2: 14 dígitos, sendo 11 numéricos inteiros, com pontos e hífen (ex. XXX.XXX.XXX-XX)
-    - [ ] UF: formato de 2 letras maiúsculas
+- [X] A aplicação retornará na tela o CPF no formato abaixo e sua UF
+    - [X] Formato: 14 dígitos, sendo 11 numéricos inteiros, com pontos e hífen (ex. XXX.XXX.XXX-XX)
+    - [X] UF: formato de 2 letras maiúsculas
 
 ## Validar CPF
 
