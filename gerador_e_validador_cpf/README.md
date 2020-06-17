@@ -57,7 +57,7 @@ Aplicação com possibilidade de validar um CPF inserido pelo usuário e gerar u
 
 - [X] A aplicação irá gerar um número de CPF válido
     - [X] O CPF gerado tem de conter 11 dígitos numéricos inteiros
-    - [ ] O CPF gerado não pode conter todos os dígitos iguais (ex. 00000000000, 33333333333), uma vez que tais valores são considerados CPFs inválidos
+    - [X] O CPF gerado não pode conter todos os dígitos iguais (ex. 00000000000, 33333333333), uma vez que tais valores são considerados CPFs inválidos
 - [X] A aplicação retornará na tela o CPF no formato abaixo e sua UF
     - [X] Formato: 14 dígitos, sendo 11 numéricos inteiros, com pontos e hífen (ex. XXX.XXX.XXX-XX)
     - [X] UF: formato de 2 letras maiúsculas

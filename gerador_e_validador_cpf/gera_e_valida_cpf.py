@@ -54,10 +54,7 @@ def valida_cpf(cpf):
     return cpf_lista, compara_dv(cpf_lista, primeiro_dv, segundo_dv)
 
 def gera_cpf():
-    cpf_lista = []
-
-    for i in range(9):
-        cpf_lista.append(random.randint(0, 9))
+    cpf_lista = [random.randint(0, 9) for i in range(9)]
 
     cpf_lista.append(calcula_dv(cpf_lista, 10))
     cpf_lista.append(calcula_dv(cpf_lista, 11))
@@ -76,31 +73,31 @@ def main():
 
     print()
 
-    if escolha.isdigit() and escolha =="1":
-        cpf_lista = gera_cpf()
+    if escolha == "1" or escolha == "2":
+        if escolha == "1":
+            cpf = gera_cpf()
 
-        print(f"CPF      : { converte_cpf(cpf_lista) }")
-        print(f"SITUAÇÃO : válido")
-        print(f"UF       : { verifica_uf(str(cpf_lista[8])) }")
+            while cpf.count(cpf[0]) == 11:
+                cpf = gera_cpf()
 
-    elif escolha.isdigit() and escolha =="2":
-        cpf = input("Por gentileza, insira o CPF para validação (apenas números): ")
-
-        print()
-        if verifica_cpf_inserido(cpf):
-            cpf_lista, situacao = valida_cpf(cpf)
-
-            print(f"CPF      : { converte_cpf(cpf_lista) }")
-            print(f"SITUAÇÃO : { situacao }")
-            if situacao == "válido":
-                print(f"UF       : { verifica_uf(str(cpf_lista[8])) }")
-
+            situacao = "válido"
+            uf = verifica_uf(str(cpf[8]))
         else:
-            print(f"CPF      : { cpf }")
-            print(f"SITUAÇÃO : inválido")
+            cpf = input("Por gentileza, insira o CPF para validação (apenas números): ")
 
+            print()
+            if verifica_cpf_inserido(cpf):
+                cpf, situacao = valida_cpf(cpf)
+                uf = verifica_uf(str(cpf[8]))
+            else:
+                situacao = uf = "inválido"
+
+        print(f"CPF      : { converte_cpf(cpf) }")
+        print(f"SITUAÇÃO : { situacao }")
+        print(f"UF       : { uf }")
     else:
         print("Valor inserido é incorreto.")
+
     print()
 
 if __name__ == "__main__":
