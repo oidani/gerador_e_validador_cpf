@@ -4,7 +4,7 @@ Aplicação com possibilidade de validar um CPF inserido pelo usuário e gerar u
 
 ## Aviso importante: esta aplicação deve ser utilizada para fins de teste de software.
 
-# User Stories
+# Fluxo de utilização
 
 ## Geral
 
@@ -34,7 +34,7 @@ Aplicação com possibilidade de validar um CPF inserido pelo usuário e gerar u
 - [X] O usuário irá visualizar na tela se o valor inserido é ou não um CPF válido
     - [X] Se for um CPF válido, o usuário também visualizará na tela a UF do CPF inserido
 
-# Etapas
+# Fluxo de desenvolvimento
 
 ## Geral
 
