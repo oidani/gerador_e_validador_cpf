@@ -6,24 +6,30 @@ def verifica_cpf_inserido(cpf):
     return len(cpf) == 11 and cpf.isdigit() and cpf.count(cpf[0]) != 11
 
 
-def calcula_dv(cpf, c):
+def calcula_dv(cpf):
     """Calcula e retorna dígito verificador do CPF."""
     lista_validacao_dv = []
-    c = 10
+    dv = []
 
-    for i in range(0, c-1):
-        lista_validacao_dv.append(int(cpf[i]) * c)
-        c -= 1
+    for i in range(10, 12):
+        for j in range(0, i-1):
+            lista_validacao_dv.append(int(cpf[j]) * i)
+            i -= 1
+        soma_validacao_dv = sum(lista_validacao_dv)
+        calculo_dv = soma_validacao_dv % 11
+        if calculo_dv < 2:
+            dv.append(0)
+        else:
+            dv.append(11 - calculo_dv)
+        if len(cpf) == 9:
+            cpf.append(dv[0])
 
-    soma_validacao_dv = sum(lista_validacao_dv)
-    calculo_dv = soma_validacao_dv % 11
-
-    return 0 if calculo_dv < 2 else 11 - calculo_dv
+    return dv
 
 
-def compara_dv(cpf, primeiro_dv, segundo_dv):
+def compara_dv(cpf, dv):
     """Valida se dígitos verificadores calculados são iguais aos inseridos."""
-    return "válido" if primeiro_dv == int(cpf[9]) and segundo_dv == int(cpf[10]) else "inválido"
+    return "válido" if dv[0] == int(cpf[9]) and dv[1] == int(cpf[10]) else "inválido"
 
 
 def converte_cpf(cpf):
@@ -68,12 +74,11 @@ def valida_cpf(cpf):
 
 def gera_cpf():
     """Gera e retorna CPF completo numa lista."""
-    cpf_lista = [random.randint(0, 9) for i in range(9)]
+    cpf = [random.randint(0, 9) for i in range(9)]
+    cpf.append(calcula_dv(cpf)[0])
+    cpf.append(calcula_dv(cpf)[1])
 
-    cpf_lista.append(calcula_dv(cpf_lista, 10))
-    cpf_lista.append(calcula_dv(cpf_lista, 11))
-
-    return cpf_lista
+    return cpf
 
 
 def main():
@@ -103,7 +108,7 @@ def main():
 
             print()
             if verifica_cpf_inserido(cpf):
-                situacao = valida_cpf(cpf)
+                situacao = calcula_dv(cpf)
                 uf = verifica_uf(str(cpf[8]))
             else:
                 situacao = uf = "inválido"
