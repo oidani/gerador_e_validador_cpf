@@ -1,59 +1,73 @@
 import random
 
+
 def verifica_cpf_inserido(cpf):
-	return len(cpf) == 11 and cpf.isdigit() and cpf.count(cpf[0]) != 11
+    """Retorna True se CPF tiver 11 números e se não forem todos iguais."""
+    return len(cpf) == 11 and cpf.isdigit() and cpf.count(cpf[0]) != 11
 
-def calcula_dv(cpf_lista, c):
-	lista_validacao_dv = []
-	for i in range(0, c-1):
-		lista_validacao_dv.append(cpf_lista[i] * c)
-		c -= 1
-	soma_validacao_dv = sum(lista_validacao_dv)
 
-	calculo_dv = soma_validacao_dv % 11
+def calcula_dv(cpf, c):
+    """Calcula e retorna dígito verificador do CPF."""
+    lista_validacao_dv = []
+    c = 10
 
-	return 0 if calculo_dv < 2 else 11 - calculo_dv
+    for i in range(0, c-1):
+        lista_validacao_dv.append(int(cpf[i]) * c)
+        c -= 1
+
+    soma_validacao_dv = sum(lista_validacao_dv)
+    calculo_dv = soma_validacao_dv % 11
+
+    return 0 if calculo_dv < 2 else 11 - calculo_dv
+
+
+def compara_dv(cpf, primeiro_dv, segundo_dv):
+    """Valida se dígitos verificadores calculados são iguais aos inseridos."""
+    return "válido" if primeiro_dv == int(cpf[9]) and segundo_dv == int(cpf[10]) else "inválido"
+
 
 def converte_cpf(cpf):
-	cpf_convertido = ""
-	for i in range(len(cpf)):
-		if i == 3 or i == 6:
-			cpf_convertido += "." + str(cpf[i])
-		elif i == 9:
-			cpf_convertido += "-" + str(cpf[i])
-		else:
-			cpf_convertido += str(cpf[i])
-	return cpf_convertido
+    """Converte e retorna CPF com os separadores ponto e hífen."""
+    cpf_convertido = ""
 
-def compara_dv(cpf_lista, primeiro_dv, segundo_dv):
-	if primeiro_dv == cpf_lista[9] and segundo_dv == cpf_lista[10]:
-		return "válido"
-	return "inválido"
+    for i in range(len(cpf)):
+
+        if i in (3, 6):
+            cpf_convertido += "." + str(cpf[i])
+        elif i == 9:
+            cpf_convertido += "-" + str(cpf[i])
+        else:
+            cpf_convertido += str(cpf[i])
+
+    return cpf_convertido
+
 
 def verifica_uf(digito_uf):
-	dict_uf = {"0": "RS",
-				"1": "DF, GO, MS, TO",
-				"2": "PA, AM, AC, AM, RO, RR",
-				"3": "CE, MA, PI",
-				"4": "PE, RN, PB, AL",
-				"5": "BA, SE",
-				"6": "MG",
-				"7": "RJ, ES",
-				"8": "SP",
-				"9": "PR, SC"}
-	return dict_uf[digito_uf]
+    """Verifica e retorna UF com base no nono dígito do CPF."""
+    dict_uf = {"0": "RS",
+               "1": "DF, GO, MS, TO",
+               "2": "PA, AM, AC, AM, RO, RR",
+               "3": "CE, MA, PI",
+               "4": "PE, RN, PB, AL",
+               "5": "BA, SE",
+               "6": "MG",
+               "7": "RJ, ES",
+               "8": "SP",
+               "9": "PR, SC"}
+
+    return dict_uf[digito_uf]
+
 
 def valida_cpf(cpf):
-    primeiro_dv = segundo_dv = 0
+    """Retorna se o CPF é válido ou inválido."""
+    primeiro_dv = calcula_dv(cpf, 10)
+    segundo_dv = calcula_dv(cpf, 11)
 
-    cpf_lista = [int(cpf[digito]) for digito in range(len(cpf))]
+    return compara_dv(cpf, primeiro_dv, segundo_dv)
 
-    primeiro_dv = calcula_dv(cpf_lista, 10)
-    segundo_dv = calcula_dv(cpf_lista, 11)
-
-    return cpf_lista, compara_dv(cpf_lista, primeiro_dv, segundo_dv)
 
 def gera_cpf():
+    """Gera e retorna CPF completo numa lista."""
     cpf_lista = [random.randint(0, 9) for i in range(9)]
 
     cpf_lista.append(calcula_dv(cpf_lista, 10))
@@ -61,7 +75,9 @@ def gera_cpf():
 
     return cpf_lista
 
+
 def main():
+    """Solicita informações ao usuário e retorna saída na tela."""
     print()
     print("GERADOR E VALIDADOR DE CPF")
     print()
@@ -73,7 +89,7 @@ def main():
 
     print()
 
-    if escolha == "1" or escolha == "2":
+    if escolha in ("1", "2"):
         if escolha == "1":
             cpf = gera_cpf()
 
@@ -83,11 +99,11 @@ def main():
             situacao = "válido"
             uf = verifica_uf(str(cpf[8]))
         else:
-            cpf = input("Por gentileza, insira o CPF para validação (apenas números): ")
+            cpf = input("Insira o CPF para validação (apenas números): ")
 
             print()
             if verifica_cpf_inserido(cpf):
-                cpf, situacao = valida_cpf(cpf)
+                situacao = valida_cpf(cpf)
                 uf = verifica_uf(str(cpf[8]))
             else:
                 situacao = uf = "inválido"
@@ -100,5 +116,6 @@ def main():
 
     print()
 
+
 if __name__ == "__main__":
-	main()
+    main()
