@@ -57,19 +57,11 @@ def verifica_uf(digito_uf):
     return dict_uf[digito_uf]
 
 
-def valida_cpf(cpf):
-    """Retorna se o CPF é válido ou inválido."""
-    primeiro_dv = calcula_dv(cpf, 10)
-    segundo_dv = calcula_dv(cpf, 11)
-
-    return compara_dv(cpf, primeiro_dv, segundo_dv)
-
-
 def gera_cpf():
     """Gera e retorna CPF completo numa lista."""
     cpf = [random.randint(0, 9) for i in range(9)]
-    cpf.append(calcula_dv(cpf)[0])
-    cpf.append(calcula_dv(cpf)[1])
+    cpf.append(calcula_dv(cpf, 10))
+    cpf.append(calcula_dv(cpf, 11))
 
     return cpf
 
