@@ -66,18 +66,22 @@ def gera_cpf():
     return cpf
 
 
+def gera_arquivo(escolha):
+    """DOCSTRING."""
+    if escolha == "1":
+        pass
+    elif escolha == "2":
+        pass
+    else:
+        pass
+    return
+
+
 def main():
     """Solicita informações ao usuário e retorna saída na tela."""
-    print()
-    print("GERADOR E VALIDADOR DE CPF")
-    print()
-    print("O que você deseja:")
-    print("1. Gerar um CPF válido")
-    print("2. Validar um CPF")
-    print()
-    escolha = input("Escolha: ")
-
-    print()
+    print("\nGERADOR E VALIDADOR DE CPF")
+    print("\nO que você deseja:\n1. Gerar um CPF válido\n2. Validar um CPF")
+    escolha = input("\nEscolha: ")
 
     if escolha in ("1", "2"):
         if escolha == "1":
@@ -89,7 +93,7 @@ def main():
             situacao = "válido"
             uf = verifica_uf(str(cpf[8]))
         else:
-            cpf = input("Insira o CPF para validação (apenas números): ")
+            cpf = input("\nInsira o CPF para validação (apenas números): ")
 
             print()
             if verifica_cpf_inserido(cpf):
@@ -100,14 +104,17 @@ def main():
             else:
                 situacao = uf = "inválido"
 
-        print(f"CPF      : { converte_cpf(cpf) }")
+        print(f"\nCPF      : { converte_cpf(cpf) }")
         print(f"SITUAÇÃO : { situacao }")
         if situacao == "válido":
             print(f"UF       : { uf }")
+            print("\nEscolha um formato de arquivo para receber o resultado:")
+            print("1. TXT\n2. XML\n3.CSV\n4. JSON\n5. YAML")
+            print("OBS: tecle qualquer outra tecla para sair.\n")
+            if escolha in ("1", "2", "3"):
+                gera_arquivo(escolha)
     else:
-        print("Valor inserido é incorreto.")
-
-    print()
+        print("\nValor inserido é incorreto.\n")
 
 
 if __name__ == "__main__":
