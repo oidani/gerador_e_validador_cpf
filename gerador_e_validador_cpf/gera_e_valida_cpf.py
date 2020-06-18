@@ -6,30 +6,23 @@ def verifica_cpf_inserido(cpf):
     return len(cpf) == 11 and cpf.isdigit() and cpf.count(cpf[0]) != 11
 
 
-def calcula_dv(cpf):
+def calcula_dv(cpf, c):
     """Calcula e retorna dígito verificador do CPF."""
     lista_validacao_dv = []
-    dv = []
 
-    for i in range(10, 12):
-        for j in range(0, i-1):
-            lista_validacao_dv.append(int(cpf[j]) * i)
-            i -= 1
-        soma_validacao_dv = sum(lista_validacao_dv)
-        calculo_dv = soma_validacao_dv % 11
-        if calculo_dv < 2:
-            dv.append(0)
-        else:
-            dv.append(11 - calculo_dv)
-        if len(cpf) == 9:
-            cpf.append(dv[0])
+    for i in range(0, c-1):
+        lista_validacao_dv.append(int(cpf[i]) * c)
+        c -= 1
 
-    return dv
+    soma_validacao_dv = sum(lista_validacao_dv)
+    calculo_dv = soma_validacao_dv % 11
+
+    return 0 if calculo_dv < 2 else 11 - calculo_dv
 
 
-def compara_dv(cpf, dv):
+def compara_dv(cpf, primeiro_dv, segundo_dv):
     """Valida se dígitos verificadores calculados são iguais aos inseridos."""
-    return "válido" if dv[0] == int(cpf[9]) and dv[1] == int(cpf[10]) else "inválido"
+    return "válido" if primeiro_dv == int(cpf[9]) and segundo_dv == int(cpf[10]) else "inválido"
 
 
 def converte_cpf(cpf):
@@ -108,7 +101,9 @@ def main():
 
             print()
             if verifica_cpf_inserido(cpf):
-                situacao = calcula_dv(cpf)
+                primeiro_dv = calcula_dv(cpf, 10)
+                segundo_dv = calcula_dv(cpf, 11)
+                situacao = compara_dv(cpf, primeiro_dv, segundo_dv)
                 uf = verifica_uf(str(cpf[8]))
             else:
                 situacao = uf = "inválido"
