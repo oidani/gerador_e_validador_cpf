@@ -102,7 +102,8 @@ def main():
 
         print(f"CPF      : { converte_cpf(cpf) }")
         print(f"SITUAÇÃO : { situacao }")
-        print(f"UF       : { uf }")
+        if situacao == "válido":
+            print(f"UF       : { uf }")
     else:
         print("Valor inserido é incorreto.")
 
