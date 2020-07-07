@@ -4,32 +4,12 @@ Aplicação com possibilidade de validar um CPF inserido pelo usuário e gerar u
 
 ## Aviso importante: esta aplicação deve ser utilizada para fins de teste de software.
 
-# Fluxo de utilização
+# Fluxo de desenvolvimento e validação
 
 ## Geral
 
-- [X] Ao iniciar a aplicação, o usuário irá visualizar uma mensagem solicitando que escolha entre gerar um CPF válido ou validar um CPF
-- [X] O usuário irá escolher entre gerar um CPF válido ou validar um CPF
-
-## Gerar CPF
-
-- [X] O usuário poderá ver na tela o CPF gerado no formato abaixo, bem como sua UF
-    - [X] Formato: 14 dígitos, sendo 11 numéricos inteiros, com pontos e hífen (ex. XXX.XXX.XXX-XX)
-    - [X] UF: formato de 2 letras maiúsculas
-
-## Validar CPF
-
-- [X] O usuário irá visualizar uma mensagem solicitando que insira um CPF para validação, no formato numérico
-- [X] O usuário irá inserir um valor para validação
-- [X] O usuário irá visualizar na tela se o valor inserido é ou não um CPF válido
-    - [X] Se for um CPF válido, o usuário também visualizará na tela a UF do CPF inserido
-
-# Fluxo de desenvolvimento
-
-## Geral
-
-- [X] A aplicação irá exibir uma mensagem solicitando que o usuário escolha entre gerar um CPF válido ou validar um CPF
-- [X] A aplicação irá exibir na tela o programa referente à escolha do usuário
+- [ ] A aplicação irá exibir uma mensagem solicitando que o usuário escolha entre (1) gerar um CPF válido, (2) validar um CPF ou (3) sair do programa
+- [ ] Se o usuário escolher (1) ou (2), a aplicação irá limpar a tela e exibir o respectivo programa
 
 ## Gerar CPF
 
