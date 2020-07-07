@@ -26,7 +26,7 @@ def compara_dv(cpf, primeiro_dv, segundo_dv):
 
 
 def converte_cpf(cpf):
-    """Converte e retorna CPF com os separadores ponto e hífen."""
+    """Realiza conversão e retorna CPF com os separadores ponto e hífen."""
     cpf_convertido = ""
 
     for i in range(len(cpf)):
@@ -66,17 +66,6 @@ def gera_cpf():
     return cpf
 
 
-def gera_arquivo(escolha):
-    """DOCSTRING."""
-    if escolha == "1":
-        pass
-    elif escolha == "2":
-        pass
-    else:
-        pass
-    return
-
-
 def main():
     """Solicita informações ao usuário e retorna saída na tela."""
     print("\nGERADOR E VALIDADOR DE CPF")
@@ -106,13 +95,6 @@ def main():
 
         print(f"\nCPF      : { converte_cpf(cpf) }")
         print(f"SITUAÇÃO : { situacao }")
-        if situacao == "válido":
-            print(f"UF       : { uf }")
-            print("\nEscolha um formato de arquivo para receber o resultado:")
-            print("1. TXT\n2. XML\n3.CSV\n4. JSON\n5. YAML")
-            print("OBS: tecle qualquer outra tecla para sair.\n")
-            if escolha in ("1", "2", "3"):
-                gera_arquivo(escolha)
     else:
         print("\nValor inserido é incorreto.\n")
 

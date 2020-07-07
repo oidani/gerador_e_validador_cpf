@@ -8,16 +8,8 @@ Aplicação com possibilidade de validar um CPF inserido pelo usuário e gerar u
 
 ## Geral
 
- - [X] Ao iniciar a aplicação, o usuário irá visualizar uma mensagem solicitando que escolha entre gerar um CPF válido ou validar um CPF
- - [X] O usuário irá escolher entre gerar um CPF válido ou validar um CPF
- - [ ] Ao receber o resultado de sua solicitação na tela, o usuário poderá escolher se deseja receber a saída obtida em um arquivo nos seguintes formatos:
-    - [ ] TXT
-    - [ ] XML
-    - [ ] CSV
-    - [ ] JSON
-    - [ ] YAML
-    - [ ] Não deseja receber via arquivo
-- [ ] O usuário poderá ver na tela o caminho onde os arquivos escolhidos foram salvos
+- [X] Ao iniciar a aplicação, o usuário irá visualizar uma mensagem solicitando que escolha entre gerar um CPF válido ou validar um CPF
+- [X] O usuário irá escolher entre gerar um CPF válido ou validar um CPF
 
 ## Gerar CPF
 
@@ -38,16 +30,6 @@ Aplicação com possibilidade de validar um CPF inserido pelo usuário e gerar u
 
 - [X] A aplicação irá exibir uma mensagem solicitando que o usuário escolha entre gerar um CPF válido ou validar um CPF
 - [X] A aplicação irá exibir na tela o programa referente à escolha do usuário
-- [ ] Após enviar a saída na tela, a aplicação solicitará que o usuário escolha se deseja receber a saída obtida em um arquivo nos seguintes formatos:
-    - [ ] TXT
-    - [ ] XML
-    - [ ] CSV
-    - [ ] JSON
-    - [ ] YAML
-    - [ ] Não deseja receber via arquivo
-- [ ] A aplicação exibirá na tela o caminho onde os arquivos escolhidos foram salvos
-    - [ ] No Windows: a definir
-    - [ ] No Linux: a definir
 
 ## Gerar CPF
 
