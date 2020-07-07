@@ -8,8 +8,8 @@ Aplicação com possibilidade de validar um CPF inserido pelo usuário e gerar u
 
 ## Geral
 
-- [ ] A aplicação irá exibir uma mensagem solicitando que o usuário escolha entre (1) gerar um CPF válido, (2) validar um CPF ou (3) sair do programa
-- [ ] Se o usuário escolher (1) ou (2), a aplicação irá limpar a tela e exibir o respectivo programa
+- [X] A aplicação irá exibir uma mensagem solicitando que o usuário escolha entre (1) gerar um CPF válido, (2) validar um CPF ou qualquer outra tecla para sair do programa
+- [X] Se o usuário escolher (1) ou (2), a aplicação irá limpar a tela e exibir o respectivo programa
 
 ## Gerar CPF
 

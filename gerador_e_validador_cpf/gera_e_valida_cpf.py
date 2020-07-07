@@ -1,4 +1,6 @@
 import random
+import os
+import time
 
 
 def verifica_cpf_inserido(cpf):
@@ -66,23 +68,34 @@ def gera_cpf():
     return cpf
 
 
+def limpa_tela():
+    """Limpa tela com base no Sistema Operacional utilizado."""
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
+
+
 def main():
     """Solicita informações ao usuário e retorna saída na tela."""
     print("\nGERADOR E VALIDADOR DE CPF")
-    print("\nO que você deseja:\n1. Gerar um CPF válido\n2. Validar um CPF")
+    print("\nO que você deseja:\n1. Gerar um CPF válido\n2. Validar um CPF\nOBS: para sair, pressione qualquer outra tecla")
     escolha = input("\nEscolha: ")
 
     if escolha in ("1", "2"):
+        limpa_tela()
         if escolha == "1":
             cpf = gera_cpf()
 
             while cpf.count(cpf[0]) == 11:
                 cpf = gera_cpf()
 
+            print("ESCOLHA: 1 - GERAR CPF\n")
             situacao = "válido"
             uf = verifica_uf(str(cpf[8]))
         else:
-            cpf = input("\nInsira o CPF para validação (apenas números): ")
+            print("ESCOLHA: 2 - VALIDAR CPF\n")
+            cpf = input("Insira o CPF para validação (apenas números): ")
 
             print()
             if verifica_cpf_inserido(cpf):
@@ -93,10 +106,13 @@ def main():
             else:
                 situacao = uf = "inválido"
 
-        print(f"\nCPF      : { converte_cpf(cpf) }")
+        print(f"CPF      : { converte_cpf(cpf) }")
         print(f"SITUAÇÃO : { situacao }")
+        print(f"UF       : { uf }")
+        print()
     else:
-        print("\nValor inserido é incorreto.\n")
+        print("\nO programa será finalizado.\n")
+        time.sleep(2)
 
 
 if __name__ == "__main__":
