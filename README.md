@@ -3,7 +3,7 @@
 Aplicação que gera um CPF válido ou valida um CPF inserido pelo usuário.
 
 For non-brazilians readers:
-- Python application that generates a valid CPF or validates a inserted CPF by a user.
+- Python application that generates a valid CPF or validates an inserted CPF by a user.
 - [CPF is a document that identifies a taxpayer at the Federal Internal Revenue Department, and carries registration information supplied by the individual and by the Federal Internal Revenue Department database.](https://thebrazilbusiness.com/qa/what-is-cpf)
 
 ### Aviso importante: esta aplicação deve ser utilizada para fins de teste de software.
